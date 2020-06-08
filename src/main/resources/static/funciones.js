@@ -14,7 +14,7 @@ function deleteCandidate ( id )
 						console.log(res);
 					}
 				});
-				swal("Poof! Your imaginary file has been deleted!", {
+				swal("Candidato eliminado con éxito", {
 					icon: "success",
 				}).then((ok) => {
 					if (ok) {
@@ -22,7 +22,7 @@ function deleteCandidate ( id )
 					}
 				});
 			} else {
-				swal("Your imaginary file is safe!");
+				swal("Operacion cancelada !");
 			}
 		});
 }
