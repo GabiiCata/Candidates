@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.fluxit.candidates.interfaceServices.ICandidateService;
@@ -44,4 +46,16 @@ public class CandidateService implements ICandidateService{
 		
 	}
 
+	@Override
+	public Page<Candidate> findAll(Pageable pageable)
+	{
+		return data.findAll( pageable );
+	}
+
+	
+	@Override
+	public List<Candidate> findAllByName( String name, Pageable pageable)
+	{
+		return data.findAllByName( name , pageable );
+	}
 }

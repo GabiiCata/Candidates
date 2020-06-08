@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +26,9 @@ public class APIController {
 	@Autowired
 	private ICandidateService service;
 	
+	Pageable defaultPagination = PageRequest.of(0,4);
+	 	
+	
 	@GetMapping("/candidate/{id}")
 	public Optional<Candidate> getCandidateById( @PathVariable int id) {
 		return service.listById( id );
@@ -31,6 +37,22 @@ public class APIController {
 	@GetMapping("/candidates")
 	public List<Candidate> getCandidatesList( ) {
 		return service.list();
+	}
+	
+
+	@GetMapping( "/listpageable" )
+	Page<Candidate> candidatesPageable(Pageable pageable) {
+		pageable = pageable != null ? pageable : defaultPagination;
+		return service.findAll( pageable );
+
+	}
+	
+	@GetMapping( "/listpageable/{name}" )
+	List<Candidate> candidatesPageableFilter(@PathVariable String name , Pageable pageable) {
+		System.out.println(pageable);
+		pageable = pageable != null ? pageable : defaultPagination;
+		return service.findAllByName(name, pageable);
+
 	}
 	
 	
