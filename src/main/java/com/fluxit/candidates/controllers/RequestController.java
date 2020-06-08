@@ -57,4 +57,12 @@ public class RequestController {
 		model.addAttribute("candidate", candidate);
 		return "form";
 	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete ( @PathVariable int id,  Model model)
+	{
+		service.delete(id);
+		return "redirect:/list";
+	}
+	
 }
