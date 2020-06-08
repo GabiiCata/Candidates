@@ -23,13 +23,18 @@ public class CandidateService implements ICandidateService{
 
 	@Override
 	public Optional<Candidate> listById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return data.findById( id );
 	}
 
 	@Override
 	public int save(Candidate c) {
-		// TODO Auto-generated method stub
+		
+		Candidate candidate = data.save( c );
+		
+		if ( ! (candidate == null) ) 
+		
+			return 1;
+		
 		return 0;
 	}
 
