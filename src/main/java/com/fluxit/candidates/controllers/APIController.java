@@ -3,12 +3,9 @@ package com.fluxit.candidates.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +17,7 @@ import com.fluxit.candidates.interfaceServices.ICandidateService;
 import com.fluxit.candidates.models.Candidate;
 
 @RestController
+@SuppressWarnings("rawtypes")
 public class APIController {
 
 	@Autowired
@@ -35,7 +33,7 @@ public class APIController {
 		return service.list();
 	}
 	
-	@SuppressWarnings("rawtypes")
+	
 	@DeleteMapping ("/candidate/{id}")
 	public ResponseEntity deleteCandidateById( @PathVariable int id) {
 		try {

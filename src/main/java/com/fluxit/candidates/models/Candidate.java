@@ -26,9 +26,7 @@ public class Candidate {
 	private int phone;
 	private String email;
 
-	public Candidate() {
-	// TODO Auto-generated constructor stub
-	}
+	public Candidate() {	}
 	
 	public Candidate(int id, String name, String lastName, Date birth, String address, int phone, String email) {
 		super();

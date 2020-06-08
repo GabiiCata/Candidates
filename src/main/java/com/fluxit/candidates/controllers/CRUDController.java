@@ -19,7 +19,7 @@ import com.fluxit.candidates.models.Candidate;
 
 @Controller
 @RequestMapping
-public class RequestController {
+public class CRUDController {
 
 	@Autowired
 	private ICandidateService service;
