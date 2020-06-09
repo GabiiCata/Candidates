@@ -12,7 +12,7 @@ _API desarrollada con framework Spring_
 | [Get candidates with specific size](#Get-candidates-by-specific-size) | GET | /api/v1/candidates?size={number} |
 | [Get candidates by size and page](#Get-candidates-by-size-and-page) | GET | /api/v1/candidates?page={number}&size={number} |
 | [Get candidate by Id](#Get-candidate-by-Id) | GET | /api/v1/candidate/{id} |
-| [Get candidate by Firstname](#Get-candidate-by-Firstname) | GET | /api/v1/candidate/{firstname} |
+| [Get candidates filter by Firstname](#Get-candidate-by-Firstname) | GET | /api/v1/candidates/{firstname} |
 | [Create candidate ](#Create-candidate) | POST | /api/v1/candidate |
 | [Update candidate ](#Update-candidate) | PUT | /api/v1/candidate |
 | [Delete candidate ](#Delete-candidate) | DELETE | /api/v1/candidate/{id} |
@@ -95,10 +95,11 @@ GET /api/v1/candidates
 GET /api/v1/candidates?size={number}
 `
 
-#### Example
+### Example
 
-> GET /api/v1/candidates?size=1
-
+`
+ GET /api/v1/candidates?size=1
+`
 
 ### Response
 
@@ -151,10 +152,10 @@ GET /api/v1/candidates?size={number}
 GET /api/v1/candidates?page={number}&size={number}
 `
 
-#### Example
-
-> GET /api/v1/candidates?page=2&size=1
-
+### Example
+`
+ GET /api/v1/candidates?page=2&size=1
+`
 
 ### Response
 
@@ -208,14 +209,56 @@ GET /api/v1/candidates?page={number}&size={number}
 GET /api/v1/candidate/{id}
 `
 
-# Get candidate by Firstname
+### Example
+
+`
+GET /api/v1/candidate/47
+`
+
+### Response
+
+```
+{
+    "id": 47,
+    "firstName": "Gabriel",
+    "lastName": "Espina",
+    "birth": "2020-06-08",
+    "address": "Avenida Federico Lacroze 1850",
+    "phone": 15553399,
+    "email": "gabyespina.ge@gmail.com",
+    "dni": 13243546
+}
+```
+
+# Get candidates by Firstname
 
 ### Request
 
 `
-GET /api/v1/candidate/{firstname}
+GET /api/v1/candidates/{firstname}
+`
+### Example
+
+`
+GET /api/v1/candidates/jeniffer
 `
 
+### Response
+
+```
+[
+    {
+        "id": 49,
+        "firstName": "Jeniffer",
+        "lastName": "Rivarola",
+        "birth": "1995-03-13",
+        "address": "Diaz Velez 2204",
+        "phone": 15234354,
+        "email": "jeniriva@gmail.com",
+        "dni": 343454653
+    }
+]
+```
 # Create candidate
 
 ### Request
@@ -223,6 +266,33 @@ GET /api/v1/candidate/{firstname}
 `
 POST /api/v1/candidate
 `
+
+#### Body
+```
+{
+    "firstName": "Cosme",
+    "lastName": "Fulanito",
+    "dni" : 32958493,
+    "birth": "1993-02-20",
+    "address": "Av. Siempre Viva 123",
+    "phone": 1142325433,
+    "email": "cosmefulanito@gmail.com"
+}
+```
+### Response
+
+```
+{
+    "id": 50,
+    "firstName": "Cosme",
+    "lastName": "Fulanito",
+    "birth": "1993-02-19",
+    "address": "Av. Siempre Viva 123",
+    "phone": 1142325433,
+    "email": "cosmefulanito@gmail.com",
+    "dni": 32958493
+}
+```
 
 # Update candidate
 
@@ -238,4 +308,15 @@ PUT /api/v1/candidate
 
 `
 DELETE api/v1/candidate/{id}
+`
+### Example
+
+`
+DELETE api/v1/candidate/48
+`
+
+### Response
+
+`
+"Candidate eliminated"
 `
