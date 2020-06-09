@@ -299,8 +299,40 @@ POST /api/v1/candidate
 ### Request
 
 `
-PUT /api/v1/candidate
+PUT /api/v1/candidate/{id}
 `
+
+### Example
+
+`
+PUT /api/v1/candidate/50
+`
+#### Body
+```
+{
+    "firstName": "Homero",
+    "lastName": "Simpson",
+    "birth": "1993-02-19",
+    "address": "Av. Siempre Viva 123",
+    "phone": 1142325433,
+    "email": "cosmefulanito@gmail.com",
+    "dni": 32958493
+}
+```
+### Response
+
+```
+{
+    "id": 58,
+    "firstName": "Homero",
+    "lastName": "Simpson",
+    "birth": "1993-02-18",
+    "address": "Av. Siempre Viva 123",
+    "phone": 1142325433,
+    "email": "cosmefulanito@gmail.com",
+    "dni": 32958493
+}
+```
 
 # Delete candidate
 
