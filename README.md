@@ -373,17 +373,26 @@ DELETE api/v1/candidate/48
 
  # 🎁  PLUS !!  - CRUD embebido
 
- Pequeño CRUD embebido para tener visibilidad de los datos en una lista: 
+ Pequeño CRUD embebido para tener visibilidad de los datos en una lista.
 
+ ### Path Templates 
 
-
+`
+src/main/resources/templates/
+`
+### URL
 `
 http://localhost:8080/list
 `
-
+### Lista
 ![alt text](src/main/resources/images/list.png)
 
+### Agregar
 ![alt text](src/main/resources/images/new.png)
 
+### Editar
+![alt text](src/main/resources/images/edit.png)
+
+### Eliminar
 ![alt text](src/main/resources/images/delete.png)
 
