@@ -26,8 +26,9 @@ public class APIController {
 	@Autowired
 	private ICandidateService service;
 	
-	Pageable defaultPagination = PageRequest.of(0,4);
-	 	
+	private final int DEFAULT_PAGE_SIZE = 10;
+	Pageable defaultPagination = PageRequest.of ( 0 , DEFAULT_PAGE_SIZE );
+	
 	
 	@GetMapping("/candidate/{id}")
 	public Optional<Candidate> getCandidateById( @PathVariable int id) {
@@ -42,17 +43,15 @@ public class APIController {
 
 	@GetMapping( "/listpageable" )
 	Page<Candidate> candidatesPageable(Pageable pageable) {
-		pageable = pageable != null ? pageable : defaultPagination;
+		pageable = pageable.getPageSize() <= DEFAULT_PAGE_SIZE ? pageable : defaultPagination;
 		return service.findAll( pageable );
 
 	}
 	
 	@GetMapping( "/listpageable/{name}" )
 	List<Candidate> candidatesPageableFilter(@PathVariable String name , Pageable pageable) {
-		System.out.println(pageable);
-		pageable = pageable != null ? pageable : defaultPagination;
+		pageable = pageable.getPageSize() <= DEFAULT_PAGE_SIZE ? pageable : defaultPagination;
 		return service.findAllByName(name, pageable);
-
 	}
 	
 	
