@@ -95,7 +95,7 @@ GET /api/v1/candidates
 GET /api/v1/candidates?size={number}
 `
 
-##### Example
+#### Example
 
 > GET /api/v1/candidates?size=1
 
@@ -153,9 +153,8 @@ GET /api/v1/candidates?page={number}&size={number}
 
 #### Example
 
-`
-GET /api/v1/candidates?page=2&size=1
-`
+> GET /api/v1/candidates?page=2&size=1
+
 
 ### Response
 
