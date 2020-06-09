@@ -17,5 +17,5 @@ public interface ICandidateService {
 	public int save ( Candidate c );
 	public void delete ( int id );
 	public Page<Candidate> findAll(Pageable pageable);
-	public List<Candidate> findAllByName( String name, Pageable pageable);
+	public List<Candidate> findAllByFirstName( String firstName, Pageable pageable);
 }

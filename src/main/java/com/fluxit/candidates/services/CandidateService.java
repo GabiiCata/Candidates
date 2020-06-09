@@ -54,8 +54,8 @@ public class CandidateService implements ICandidateService{
 
 	
 	@Override
-	public List<Candidate> findAllByName( String name, Pageable pageable)
+	public List<Candidate> findAllByFirstName( String firstName, Pageable pageable)
 	{
-		return data.findAllByName( name , pageable );
+		return data.findAllByFirstName( firstName , pageable );
 	}
 }

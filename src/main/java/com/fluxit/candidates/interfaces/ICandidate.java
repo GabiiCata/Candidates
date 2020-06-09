@@ -9,5 +9,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import com.fluxit.candidates.models.Candidate;
 
 public interface ICandidate extends PagingAndSortingRepository<Candidate, Integer>{
-	List<Candidate> findAllByName(String name, Pageable pageable);
+	List<Candidate> findAllByFirstName(String firstName, Pageable pageable);
 }

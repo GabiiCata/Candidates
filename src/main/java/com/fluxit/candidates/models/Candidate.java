@@ -19,7 +19,7 @@ public class Candidate {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String name; 
+	private String firstName; 
 	private String lastName;
 	private Date birth;
 	private Long DNI;

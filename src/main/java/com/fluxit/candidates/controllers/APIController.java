@@ -29,33 +29,33 @@ public class APIController {
 	private final int DEFAULT_PAGE_SIZE = 10;
 	Pageable defaultPagination = PageRequest.of ( 0 , DEFAULT_PAGE_SIZE );
 	
+	private final String API_URL  = "/api/v1";
 	
-	@GetMapping("/candidate/{id}")
+	
+	// get candidate by id
+	@GetMapping( API_URL + "/candidate/{id}")
 	public Optional<Candidate> getCandidateById( @PathVariable int id) {
 		return service.listById( id );
 	}
-	
-	@GetMapping("/candidates")
-	public List<Candidate> getCandidatesList( ) {
-		return service.list();
-	}
-	
 
-	@GetMapping( "/listpageable" )
+	
+	// get candidate list
+	@GetMapping( API_URL + "/candidates" )
 	Page<Candidate> candidatesPageable(Pageable pageable) {
 		pageable = pageable.getPageSize() <= DEFAULT_PAGE_SIZE ? pageable : defaultPagination;
 		return service.findAll( pageable );
 
 	}
 	
-	@GetMapping( "/listpageable/{name}" )
-	List<Candidate> candidatesPageableFilter(@PathVariable String name , Pageable pageable) {
+	// get candidate list filter by name
+	@GetMapping( API_URL + "/candidates/{firstName}" )
+	List<Candidate> candidatesPageableFilter(@PathVariable String firstName , Pageable pageable) {
 		pageable = pageable.getPageSize() <= DEFAULT_PAGE_SIZE ? pageable : defaultPagination;
-		return service.findAllByName(name, pageable);
+		return service.findAllByFirstName(firstName, pageable);
 	}
 	
-	
-	@DeleteMapping ("/candidate/{id}")
+	// delete candidate by id
+	@DeleteMapping ( API_URL + "/candidate/{id}")
 	public ResponseEntity deleteCandidateById( @PathVariable int id) {
 		try {
 			service.delete( id );
@@ -65,8 +65,8 @@ public class APIController {
 		}
 	}
 	
-	
-	@PostMapping("/candidate")
+	// create new candidate
+	@PostMapping( API_URL + "/candidate")
 	public Object addCandidate ( @RequestBody Candidate c )
 	{
 		try
