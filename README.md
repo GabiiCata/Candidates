@@ -367,6 +367,10 @@ DELETE api/v1/candidate/48
 "Candidate eliminated"
 `
 
+----------
+.
+----------
+
  # 🎁  PLUS !!  - CRUD embebido
 
  Pequeño CRUD embebido para tener visibilidad de los datos en una lista: 
