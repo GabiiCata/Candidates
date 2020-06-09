@@ -368,8 +368,7 @@ DELETE api/v1/candidate/48
 `
 
 ----------
-.
-----------
+
 
  # 🎁  PLUS !!  - CRUD embebido
 
