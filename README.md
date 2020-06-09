@@ -1,8 +1,22 @@
 
-# API REST - Fluxit Candidates
+# API REST - Fluxit Candidates 🚀
 
-_API desarrollada con framework Spring_
+_API REST desarrollada con  Spring conectada a MySQL_
 
+
+## Implementación en MySQL
+
+Importar el file en MySQL para tener la base actualizada.
+
+`
+ src/main/resources/candidate.sql
+`
+
+Verificar tipo de conexión en application.properties al mismo schema
+
+`
+ src/main/resources/application.properties
+`
 
 # Endpoints
 
@@ -352,3 +366,20 @@ DELETE api/v1/candidate/48
 `
 "Candidate eliminated"
 `
+
+ # 🎁  PLUS !!  - CRUD embebido
+
+ Pequeño CRUD embebido para tener visibilidad de los datos en una lista: 
+
+
+
+`
+http://localhost:8080/list
+`
+
+![alt text](src/main/resources/images/list.png)
+
+![alt text](src/main/resources/images/new.png)
+
+![alt text](src/main/resources/images/delete.png)
+
