@@ -14,7 +14,7 @@ _API desarrollada con framework Spring_
 | [Get candidate by Id](#Get-candidate-by-Id) | GET | /api/v1/candidate/{id} |
 | [Get candidates filter by Firstname](#Get-candidates-by-Firstname) | GET | /api/v1/candidates/{firstname} |
 | [Create candidate ](#Create-candidate) | POST | /api/v1/candidate |
-| [Update candidate ](#Update-candidate) | PUT | /api/v1/candidate |
+| [Update candidate ](#Update-candidate) | PUT | /api/v1/candidate/{id} |
 | [Delete candidate ](#Delete-candidate) | DELETE | /api/v1/candidate/{id} |
 
 # Get candidates
